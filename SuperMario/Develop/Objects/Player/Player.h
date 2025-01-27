@@ -28,6 +28,9 @@ private:
 	bool scroll_end;						//スクロールエンド
 	int Jump_sound;							//ジャンプ効果音
 
+	bool slide_flag;
+	int animation_num[3] = { 1, 2, 3 };
+
 public:
 	Player();
 	~Player();
