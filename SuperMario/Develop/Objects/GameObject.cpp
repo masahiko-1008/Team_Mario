@@ -42,7 +42,7 @@ void GameObject::Draw(const Vector2D& screen_offset) const
 {
 	// オフセット値を基に画像の描画を行う
 	Vector2D graph_location = this->location + screen_offset;
-	DrawRotaGraphF(graph_location.x, graph_location.y, 1.0, 0.0, image, FALSE, flip_flg);
+	DrawRotaGraphF(graph_location.x, graph_location.y, 1.0, 0.0, image, TRUE, flip_flag);
 }
 
 /// <summary>
@@ -132,10 +132,10 @@ const eMobilityType GameObject::GetMobility() const
 }
 
 //画像反転情報
-void GameObject::SetFlip_flg(int flip_flg)
-{
-	this->flip_flg = flip_flg;
-}
+//void GameObject::SetFlip_flg(int flip_flg)
+//{
+//	this->flip_flg = flip_flg;
+//}
 
 //アニメーション制御
 void GameObject::AnimationControl(float delota_second)
