@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClCompile Include="Application\Application.cpp" />
     <ClCompile Include="AppMain.cpp" />
+    <ClCompile Include="Utility\Camera.cpp" />
     <ClCompile Include="Objects\Player\State\GoalState.cpp" />
     <ClCompile Include="Objects\Player\State\IdleState.cpp" />
     <ClCompile Include="Objects\Player\State\JumpState.cpp" />
@@ -168,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application\Application.h" />
+    <ClInclude Include="Utility\Camera.h" />
     <ClInclude Include="Objects\Player\State\GoalState.h" />
     <ClInclude Include="Objects\Player\State\IdleState.h" />
     <ClInclude Include="Objects\Player\State\JumpState.h" />

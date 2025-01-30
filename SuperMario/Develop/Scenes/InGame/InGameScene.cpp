@@ -76,6 +76,12 @@ eSceneType InGameScene::Update(const float& delta_second)
 		player->SetScroll();
 	}
 
+	////スクロースした時のx座標位置設定
+	//generate_location.x = generate_location.x - camera->Get_Offset().x;
+
+	////カメラ右端の座標
+	//float Dx = camera->Get_CameraLocation().x + D_WIN_MAX_X / 2;
+
 	// シーン情報を返却する
 	return GetNowSceneType();
 }
