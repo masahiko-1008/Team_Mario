@@ -132,7 +132,7 @@ const eMobilityType GameObject::GetMobility() const
 }
 
 //‰æ‘œ”½“]î•ñ
-void GameObject::SetFli_flg(int flip_flg)
+void GameObject::SetFlip_flg(int flip_flg)
 {
 	this->flip_flg = flip_flg;
 }

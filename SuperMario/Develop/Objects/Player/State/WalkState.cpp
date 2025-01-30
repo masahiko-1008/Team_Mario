@@ -4,13 +4,14 @@
 #include "../../../Utility/ResourceManager.h"
 #include "../Player.h"
 
-#define D_MAX_SPEED		(100.0f)
+#define D_MAX_SPEED		(200.0f)
 
 //コンストラクタ	p=プレイヤー情報
 WalkState::WalkState(class Player* p)
 	: PlayerStateBase(p)
 	, direction(Vector2D(0.0f))
 	, player_dash(false)
+	, speed(0)
 {
 
 }
@@ -54,7 +55,22 @@ void WalkState::Update(float delta_second)
 			player_dash = true;
 		}
 
-		player->SetFli_flg(TRUE);
+		if (speed > -100)
+		{
+			speed += (float)4 / 60 * -1;
+		}
+
+		player->Set_Velocity(Vector2D(speed, player->Get_Velocity().y));
+
+		if (speed >= 0)
+			{
+				player->Set_SlideFlag(TRUE);
+			}
+			else
+			{
+				player->SetFlip_flag(TRUE);
+			}
+
 	}
 
 	if (input->GetKey(KEY_INPUT_D) == true)
@@ -67,7 +83,22 @@ void WalkState::Update(float delta_second)
 			player_dash = true;
 		}
 
-		player->SetFli_flg(FALSE);
+		if (speed < 100)
+		{
+			speed += (float)4 / 60;
+		}
+		player->Set_Velocity(Vector2D(speed, player->Get_Velocity().y));
+
+		if (speed <= 0)
+		{
+			player->Set_SlideFlag(TRUE);
+		}
+		else
+		{
+			player->SetFlip_flag(FALSE);
+		}
+
+
 	}
 
 	//スピードの上限を超えないようにする

@@ -38,6 +38,7 @@ protected:
 	eMobilityType		mobility;		// 可動性
 	float				g_velocity;		//重力速度
 	int					flip_flg;		//画像の反転フラグ
+	bool flip_flag;
 
 
 public:
@@ -115,7 +116,7 @@ public:
 
 	///	反転フラグの切り替え
 	///	TRUEかFALSEの数値を返す
-	void SetFli_flg(int flip_flg);
+	void SetFlip_flg(int flip_flg);
 
 	//アニメーション制御
 	virtual void AnimationControl(float delta_scond);

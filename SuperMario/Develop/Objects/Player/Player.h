@@ -21,15 +21,23 @@ private:
 	ePlayerState next_state = ePlayerState::eNONE;	//次の状態
 	ePlayerState now_state = ePlayerState::eIDLE;	//現在のステート状態
 
-	ePlayerState player_stae;				//プレイヤーの状態
+	std::vector<int> move_animation;
+
+	ePlayerState player_state;				//プレイヤーの状態
 	float star_time;						//無敵時間
 	bool is_power;							//パワーアップ状態か
 	bool is_star;							//無敵時間中か
 	bool scroll_end;						//スクロールエンド
 	int Jump_sound;							//ジャンプ効果音
-
-	bool slide_flag;
 	int animation_num[3] = { 1, 2, 3 };
+
+
+public:
+	void SetFlip_flag(bool flag);
+	bool GetFlip_flag();
+	Vector2D Get_Velocity();
+	void Set_Velocity(Vector2D velocity_x);
+	bool slide_flag;
 
 public:
 	Player();
@@ -45,7 +53,10 @@ public:
 
 	void SetScroll();								//スクロール判断
 
+	void Set_SlideFlag(bool flag);
+
 private:
 	void ChengeMode();
 	void AnimationControl(float delta_second) override;
+	void Movement(float delta_second);
 };
