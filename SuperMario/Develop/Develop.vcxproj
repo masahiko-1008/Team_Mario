@@ -169,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application\Application.h" />
+    <ClInclude Include="Objects\BlockBase\Block\BlockBase.h" />
     <ClInclude Include="Utility\Camera.h" />
     <ClInclude Include="Objects\Player\State\GoalState.h" />
     <ClInclude Include="Objects\Player\State\IdleState.h" />

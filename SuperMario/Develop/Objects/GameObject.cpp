@@ -93,7 +93,7 @@ void GameObject::SetLocation(const Vector2D& location)
 /// 当たり判定取得処理
 /// </summary>
 /// <returns>当たり判定情報</returns>
-Collision GameObject::GetCollision() const
+const Collision& GameObject::GetCollision() const
 {
 	return collision;
 }
@@ -117,7 +117,7 @@ Vector2D GameObject::GetBoxsize() const
 /// Zレイヤー情報取得処理
 /// </summary>
 /// <returns>Zレイヤー情報</returns>
-const int GameObject::GetZLayer() const
+const unsigned char GameObject::GetZLayer() const
 {
 	return z_layer;
 }
@@ -126,7 +126,7 @@ const int GameObject::GetZLayer() const
 /// 可動性情報の取得処理
 /// </summary>
 /// <returns>可動性情報</returns>
-const eMobilityType GameObject::GetMobility() const
+const bool GameObject::GetMobility() const
 {
 	return mobility;
 }

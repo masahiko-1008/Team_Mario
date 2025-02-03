@@ -36,6 +36,7 @@ protected:
 	int					image;			// 画像情報
 	int					z_layer;		// レイヤー情報
 	eMobilityType		mobility;		// 可動性
+	bool is_mobility;					// 
 	float				g_velocity;		//重力速度
 	int					flip_flg;		//画像の反転フラグ
 
@@ -81,7 +82,7 @@ public:
 	/// 位置座標取得処理
 	/// </summary>
 	/// <returns>位置座標情報</returns>
-	const Vector2D& GetLocation() const;
+	virtual const Vector2D& GetLocation() const;
 
 	/// <summary>
 	/// 位置情報変更処理
@@ -93,7 +94,7 @@ public:
 	/// 当たり判定取得処理
 	/// </summary>
 	/// <returns>当たり判定の大きさを取得</returns>
-	Collision GetCollision() const;
+	virtual const Collision& GetCollision() const;
 
 	//各辺の当たり判定情報
 	void SetCollision(bool t, bool b, bool l, bool r);
@@ -105,13 +106,13 @@ public:
 	/// Ｚレイヤー情報取得処理
 	/// </summary>
 	/// <returns>Ｚレイヤー情報</returns>
-	const int GetZLayer() const;
+	virtual const unsigned char GetZLayer() const;
 
 	/// <summary>
 	/// 可動性情報の取得処理
 	/// </summary>
 	/// <returns>可動性情報</returns>
-	const eMobilityType GetMobility() const;
+	virtual const bool GetMobility() const;
 
 	///	反転フラグの切り替え
 	///	TRUEかFALSEの数値を返す
