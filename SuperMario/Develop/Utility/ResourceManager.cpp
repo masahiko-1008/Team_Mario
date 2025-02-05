@@ -19,6 +19,11 @@ ResourceManager* ResourceManager::instance = nullptr;	// 自クラスのポインタ
 //	return instance;
 //}
 
+ResourceManager* ResourceManager::GetInstance()
+{
+	return nullptr;
+}
+
 /// <summary>
 /// インスタンス削除処理
 /// </summary>
@@ -47,7 +52,7 @@ void ResourceManager::DeleteInstance()
 /// <param name="size_x">横のサイズ(px)</param>
 /// <param name="size_y">縦のサイズ(px)</param>
 /// <returns>読み込んだ画像ハンドルのvector配列</returns>
-const std::vector<int>& ResourceManager::GetImages(std::string file_name, int all_num, int num_x, int num_y, int size_x, int size_y)
+const std::vector<int>& ResourceManager::GetImagesResource(std::string file_name, int all_num, int num_x, int num_y, int size_x, int size_y)
 {
 	// コンテナ内に画像データが無い場合、画像読み込みを行う
 	if (images_container.count(file_name) == NULL)
@@ -70,7 +75,7 @@ const std::vector<int>& ResourceManager::GetImages(std::string file_name, int al
 }
 const std::vector<int>& ResourceManager::GetImages(const char* file_name, int all_num, int num_x, int num_y, int size_x, int size_y)
 {
-	return GetImages(std::string(file_name), all_num, num_x, num_y, size_x, size_y);
+	return GetImagesResource(std::string(file_name), all_num, num_x, num_y, size_x, size_y);
 }
 
 /// <summary>

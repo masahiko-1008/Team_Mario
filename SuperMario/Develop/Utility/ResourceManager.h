@@ -23,7 +23,7 @@ public:
 	/// インスタンス取得処理
 	/// </summary>
 	/// <returns>インスタンスのポインタを返却する</returns>
-	//static ResourceManager* GetInstance();
+	static ResourceManager* GetInstance();
 
 	/// <summary>
 	/// インスタンス削除処理
@@ -41,7 +41,7 @@ public:
 	/// <param name="size_x">横のサイズ(px)</param>
 	/// <param name="size_y">縦のサイズ(px)</param>
 	/// <returns>読み込んだ画像ハンドルのvector配列</returns>
-	const std::vector<int>& GetImages(std::string file_name, int all_num = 1, int num_x = 1, int num_y = 1, int size_x = 0, int size_y = 0);
+	const std::vector<int>& GetImagesResource(std::string file_name, int all_num = 1, int num_x = 1, int num_y = 1, int size_x = 0, int size_y = 0);
 	/// <summary>
 	/// 画像取得処理
 	/// </summary>

@@ -5,12 +5,12 @@
 void Hatena::Initialize()
 {
 	ResourceManager* rm = ResourceManager::GetInstance();
-	block_image = rm->GetImageResource("Resource/Images/Block/hatena.png", 4, 4, 1, 32, 32);
+	block_image = rm->GetImagesResource("Resource/Images/Block/hatena.png", 4, 4, 1, 32, 32);
 	kara_block = LoadGraph("Resource/Images/Block/kara_block.png");
-	collision.object_type = eBlock;
-	collision.hit_object_type.push_back(ePlayer);
-	collision.hit_object_type.push_back(eEnemy);
-	collision.hit_object_type.push_back(eItem);
+	collision.object_type = eObjectType::eBlock;
+	collision.hit_object_type.push_back(eObjectType::ePlayer);
+	collision.hit_object_type.push_back(eObjectType::eEnemy);
+	collision.hit_object_type.push_back(eObjectType::eItem);
 
 	collision.box_size = Vector2D(32, 32);
 
@@ -70,7 +70,7 @@ void Hatena::OnHitCollision(GameObject* hit_object)
 
 	if (diff.y < 0)
 	{
-		if (hit_object->GetCollision().object_type == ePlayer)
+		if (hit_object->GetCollision().object_type == eObjectType::ePlayer)
 		{
 			image = kara_block;
 			hit_flag = true;
