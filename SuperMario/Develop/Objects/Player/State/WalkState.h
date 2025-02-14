@@ -1,9 +1,14 @@
 #pragma once
 
 #include "Factory/StateFactory.h"
+#include "../../../Utility/InputManager.h"
 
 class WalkState : public PlayerStateBase
 {
+public:
+	InputManager* input;
+	float speed;
+
 private:
 	//ƒvƒŒƒCƒ„[‚ÌˆÚ“®—Ê
 	Vector2D direction;

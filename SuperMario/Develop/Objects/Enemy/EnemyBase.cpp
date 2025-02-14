@@ -66,6 +66,7 @@ void EnemyBase::Movement(float delta_second)
 	location += velocity * D_ENEMY_SPEED * delta_second;
 }
 
+
 /// <summary>
 /// アニメーション制御
 /// </summary>

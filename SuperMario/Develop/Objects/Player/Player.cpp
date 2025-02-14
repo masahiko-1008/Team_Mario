@@ -5,6 +5,8 @@
 #include "../../Utility/Singleton.h"
 #include "DxLib.h"
 
+#define P_SPEED (50.0f)
+
 Player::Player()
 {
 
@@ -47,6 +49,14 @@ void Player::Initialize()
 
 	//スクロールエンド
 	scroll_end = false;
+
+	//アニメーション画像の設定
+	image = move_animation[0];
+
+	//画像反転フラグの設定
+	flip_flag = FALSE;
+
+	slide_flag = false;
 }
 
 /// <summary>
@@ -55,6 +65,8 @@ void Player::Initialize()
 /// <param name="delta_second">1フレームあたりの時間</param>
 void Player::Update(float delta_second)
 {
+	slide_flag = false;
+
 	InputManager* input = InputManager::CreateInstance();
 
 	//stateの変更処理
@@ -104,6 +116,7 @@ void Player::Update(float delta_second)
 		g_velocity = 0.0f;
 		velocity.y = 0.0f;
 	}
+
 
 	AnimationControl(delta_second);
 }
@@ -157,6 +170,31 @@ void Player::OnHitCollision(GameObject*)
 	}
 }
 
+void Player::SetFlip_flag(bool flag)
+{
+	flip_flag = flag;
+}
+
+bool Player::GetFlip_flag()
+{
+	return flip_flag;
+}
+
+Vector2D Player::Get_Velocity()
+{
+	return this->velocity;
+}
+
+void Player::Set_Velocity(Vector2D velocity)
+{
+	this->velocity = velocity;
+}
+
+void Player::Set_SlideFlag(bool flag)
+{
+	slide_flag = flag;
+}
+
 void Player::AnimationControl(float delta_second)
 {
 	switch (now_state)
@@ -167,16 +205,25 @@ void Player::AnimationControl(float delta_second)
 	case eWALK:
 		// 移動中のアニメーション
 		animation_time += delta_second;
-		if (animation_time >= (1.0f / 10.0f))
+
+		if (animation_time >= (1.0f / 16.0f))
 		{
 			animation_time = 0.0f;
+
+			image = move_animation[animation_num[animation_count]];
+
+			if (slide_flag == true)
+			{
+				image = move_animation[4];
+			}
+
 			animation_count++;
-			if (animation_count >= 2)
+
+			if (animation_count >= 3)
 			{
 				animation_count = 0;
 			}
 
-			image = move_animation[animation_count + 1];
 		}
 
 		break;
@@ -198,6 +245,8 @@ void Player::AnimationControl(float delta_second)
 		break;
 	}
 }
+
+
 
 //次のStateを設定
 void Player::SetNextState(ePlayerState next_state)
