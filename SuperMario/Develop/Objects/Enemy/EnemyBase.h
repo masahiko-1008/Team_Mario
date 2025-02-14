@@ -34,6 +34,7 @@ public:
 	void Draw(const Vector2D& screen_offset) const override;		//•`‰æˆ—
 	void Update(float delta_second) override;					//XVˆ—
 
+
 	/// <summary>
 	/// “–‚½‚è”»’è’Ê’mˆ—
 	/// </summary>
